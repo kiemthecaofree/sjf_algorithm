@@ -1,0 +1,15 @@
+body{
+    overflow: hidden;
+    margin: 0px;
+}
+
+object{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0px;
+}
+
+.bar .fa.fa-bars, .bar .fa.fa-times {
+    color: #4db2ec;
+}
