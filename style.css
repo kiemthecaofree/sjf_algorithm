@@ -156,6 +156,7 @@ a{
     cursor: pointer;
     display: inline-block;
     text-align: center;
+    outline: none;
 }
 
 button, #btn__result{
