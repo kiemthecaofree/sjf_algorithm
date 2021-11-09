@@ -309,7 +309,6 @@ const printResultDQ = () => {
       const span_time = document.createElement("span");
       span_time.innerHTML = `${Number(times)}`;
       data__time__1.appendChild(span_time);
-      time_out += 300;
       time_wait += Number(times) - Number(newArrCaseDQ[i][1]);
 
       if (
@@ -334,7 +333,8 @@ const printResultDQ = () => {
         span_4.innerHTML = `${Number(time_wait) / ListArray.length}`;
         average__time__1.appendChild(span_4);
       }
-    }, time_out)
+    }, time_out);
+    time_out += 300;
   }
 };
 
