@@ -273,7 +273,7 @@ input.dq{
     }
     #data__name__1 span, #data__time__1 span, #average__time__1 span {
         padding: 5px 5px;
-        width: unset;
+        width: 15px;
     }
     .table__data__1 {
         padding: 0px 5px;
