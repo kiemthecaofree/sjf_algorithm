@@ -267,6 +267,7 @@ const handleSJFDocQuyen = () => {
 
 const printResultDQ = () => {
   createTable();
+  let time_out = 300;
   const data__name__1 = document.querySelector("#data__name__1");
   const data__time__1 = document.querySelector("#data__time__1");
   const average__time__1 = document.querySelector("#average__time__1");
@@ -281,65 +282,61 @@ const printResultDQ = () => {
 
   let times;
   let time_wait = 0;
-  // let times = Number(Number(ListArray[0][2]) + Number(ListArray[0][1]));
-  if(newArrCaseDQ.length !== 0 && Number(ListArray[0][1]) + Number(ListArray[0][2]) < Number(newArrCaseDQ[0][1]))
+  if (
+    newArrCaseDQ.length !== 0 &&
+    Number(ListArray[0][1]) + Number(ListArray[0][2]) <
+      Number(newArrCaseDQ[0][1])
+  )
     times = Number(newArrCaseDQ[0][1]);
-  else if (newArrCaseDQ.length !== 0 && Number(ListArray[0][1]) + Number(ListArray[0][2]) >= Number(newArrCaseDQ[0][1]))
+  else if (
+    newArrCaseDQ.length !== 0 &&
+    Number(ListArray[0][1]) + Number(ListArray[0][2]) >=
+      Number(newArrCaseDQ[0][1])
+  )
     times = Number(Number(ListArray[0][1]) + Number(ListArray[0][2]));
 
-  let time_out = 300;
   for (let i = 0; i < newArrCaseDQ.length; i++) {
     setTimeout(() => {
       const span_name = document.createElement("span");
       span_name.innerHTML = `${newArrCaseDQ[i][0]}`;
       data__name__1.appendChild(span_name);
-    }, time_out);
-    time_out += 300;
+      time_out += 300;
+    }, time_out)
   }
-  
   time_out = 300;
   for (let i = 0; i < newArrCaseDQ.length; i++) {
     setTimeout(() => {
       const span_time = document.createElement("span");
       span_time.innerHTML = `${Number(times)}`;
       data__time__1.appendChild(span_time);
-    }, time_out);
-    time_out += 300;
-    time_wait += Number(times) - Number(newArrCaseDQ[i][1]);
+      time_out += 300;
+      time_wait += Number(times) - Number(newArrCaseDQ[i][1]);
 
-    if (
-      newArrCaseDQ[i + 1] !== undefined &&
-      Number(times) + Number(newArrCaseDQ[i][2]) < Number(newArrCaseDQ[i + 1][1])
-    ) {
-      times = Number(newArrCaseDQ[i + 1][1]);
-    } else if (
-      newArrCaseDQ[i + 1] !== undefined &&
-      Number(times) + Number(newArrCaseDQ[i][2]) >= Number(newArrCaseDQ[i + 1][1])
-    ) {
-      times += Number(newArrCaseDQ[i][2]);
-    }
+      if (
+        newArrCaseDQ[i + 1] !== undefined &&
+        Number(times) + Number(newArrCaseDQ[i][2]) <
+          Number(newArrCaseDQ[i + 1][1])
+      ) {
+        times = Number(newArrCaseDQ[i + 1][1]);
+      } else if (
+        newArrCaseDQ[i + 1] !== undefined &&
+        Number(times) + Number(newArrCaseDQ[i][2]) >=
+          Number(newArrCaseDQ[i + 1][1])
+      ) {
+        times += Number(newArrCaseDQ[i][2]);
+      }
+
+      if (i === newArrCaseDQ.length - 1) {
+        let span_3 = document.createElement("span");
+        span_3.innerHTML = `${times}`;
+
+        let span_4 = document.createElement("span");
+        span_4.innerHTML = `${Number(time_wait) / ListArray.length}`;
+        average__time__1.appendChild(span_4);
+      }
+    }, time_out)
   }
-
-  let span_3 = document.createElement("span");
-  span_3.innerHTML = `${times}`;
-  let span_4 = document.createElement("span");
-  span_4.innerHTML = `${Number(time_wait) / ListArray.length}`;
-  average__time__1.appendChild(span_4);
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 const cloneArr = () => {
