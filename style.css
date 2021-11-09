@@ -229,7 +229,9 @@ input{
     justify-content: space-evenly;
 }
 
-
+input.dq{
+    margin-top: 4px;
+}
 
 @media screen and (max-width:800px) {
     .container{
